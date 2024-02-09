@@ -29,6 +29,7 @@
   padding: 34px 36px;
   place-items: center;
   display: flex;
+  position: relative;
 }
 
 .popup__close-button {
@@ -41,8 +42,8 @@
   box-sizing: border-box;
   border: none;
   position: absolute;
-  top: 90px;
-  left: 890px;
+  top: -50px;
+  right: 0;
   background-color: #00000026;
 }
 
@@ -102,8 +103,6 @@
   .popup__close-button {
     width: 26px;
     height: 26px;
-    top: 120px;
-    left: 303px;
   }
   .popup__title {
     font-size: 18px;
@@ -123,7 +122,5 @@
 
 @media screen and (min-width: 768px) and (max-width: 1024px) {
   .popup__close-button {
-    top: 430px;
-    left: 720px;
   }
 }

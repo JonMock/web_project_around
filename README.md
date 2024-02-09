@@ -17,3 +17,5 @@ DESCRIPCION DEL PROYECTO
 - Pagina web con ciertas funcionalidades , como se visualiza en la misma , son perfiles los cuales tratan de compartir esa funcionalidad de añadir. La tecnollogia utilizada brevemente fue javascript para darle esa funcionalidad de añadir perfil , y retratar los conocimientos adquiridos o que esperan en este sprint 5.
 
 ENLACE GITHUB PAGES
+
+- https://jonmock.github.io/web_project_around/
