@@ -1,6 +1,7 @@
 .profile {
   display: flex;
   margin: 40px 0 50px;
+  overflow: hidden;
 }
 
 .profile__avatar {
@@ -9,6 +10,7 @@
   width: 120px;
   height: 120px;
   margin-top: 22px;
+  overflow: hidden;
 }
 
 .profile__information {
