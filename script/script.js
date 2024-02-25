@@ -12,6 +12,53 @@ const nameInput = document.querySelector(".popup__input_name");
 const aboutInput = document.querySelector(".popup__input_about");
 const closeButtonPopup = document.querySelector(".popup__close-button");
 
+//Agregar imagenes
+const btnAddCard = document.querySelector(".profile__add-button");
+const popUpCard = document.querySelector("#add-image-popup");
+const inputTitle = document.querySelector("#input-title-place");
+const inputImage = document.querySelector("#input-url-image");
+
+// Card Template
+
+const templateCard = document.querySelector(".template-card");
+const spaceCard = document.querySelector(".cards");
+const formCard = document.querySelector("#add-image-form");
+const initialCards = [
+  {
+    name: "Valle de Yosemite",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg",
+  },
+  {
+    name: "Lago Louise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg",
+  },
+  {
+    name: "Montañas Calvas",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg",
+  },
+  {
+    name: "Latemar",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg",
+  },
+  {
+    name: "Parque Nacional de la Vanoise",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg",
+  },
+  {
+    name: "Lago di Braies",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg",
+  },
+];
+
+// popup imagenes
+
+const popupOpenImage = document.querySelector("#popup-image-open");
+const imageClose = document.querySelector(".popup__close-imag");
+const popupTitleImage = document.querySelector(".popup__image-title");
+const popupImage = document.querySelector(".popup__image");
+
+//editar perfil
+
 let initialProfileName = profileName;
 let initialProfileAbout = profileAbout;
 
@@ -42,6 +89,84 @@ function handleProfileFormSubmit(evt) {
   closePopup();
 }
 
+// Agregar imagenes
+
+function openImageAdd() {
+  popUpCard.classList.add("popup_opened");
+}
+
+function handleImageAddClick(event) {
+  openImageAdd();
+}
+
+function closeImageAdd() {
+  popUpCard.classList.remove("popup_opened");
+}
+
+function handleAddImageSubmitForm(evt) {
+  evt.preventDefault();
+  const imageNewTitle = inputTitle.value;
+  const imageNewURL = inputImage.value;
+  closeImageAdd();
+}
+
+// Card Template
+
+function cardGenerator(title, link) {
+  const card = templateCard.cloneNode(true).content.querySelector(".card");
+  const cardImage = card.querySelector(".card__image");
+  const cardTitle = card.querySelector(".card__information-name");
+  const likeButton = card.querySelector(".card__like-button");
+  const deleteButton = card.querySelector(".card__delete-button");
+  cardImage.src = link;
+  cardTitle.textContent = title;
+  likeButton.addEventListener("click", function () {
+    likeButton.classList.toggle("card__like-button_active");
+  });
+  deleteButton.addEventListener("click", function () {
+    card.remove();
+  });
+  cardImage.addEventListener("click", function () {
+    handleOpenImage(title, link);
+  });
+  return card;
+}
+
+initialCards.forEach(function (element) {
+  const newCard = cardGenerator(element.name, element.link);
+  spaceCard.append(newCard);
+});
+
+function handleAddCardSubmit(evt) {
+  evt.preventDefault();
+  const newCard = cardGenerator(inputTitle.value, inputImage.value);
+  spaceCard.prepend(newCard);
+  closeImageAdd();
+}
+
+//Popup imagenes
+
+function handleOpenImage(title, link) {
+  popupImage.src = link;
+  popupTitleImage.textContent = title;
+  popupOpenImage.classList.add("popup_opened");
+}
+
+function handleCloseImage() {
+  popupOpenImage.classList.remove("popup_opened");
+}
+
+//Eventos
+
 profileEditButton.addEventListener("click", handlePopupClick);
 closeButtonPopup.addEventListener("click", closePopup);
 formElement.addEventListener("submit", handleProfileFormSubmit);
+
+btnAddCard.addEventListener("click", handleImageAddClick);
+formCard.addEventListener("submit", handleAddCardSubmit);
+imageClose.addEventListener("click", handleCloseImage);
+
+popUpCard
+  .querySelector("#close-button")
+  .addEventListener("click", closeImageAdd);
+

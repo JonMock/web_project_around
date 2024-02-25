@@ -35,90 +35,91 @@
           </div>
           <button class="profile__add-button"></button>
         </section>
-        <div class="elements">
-          <div class="element">
-            <img
-              src="./images/yosemite.jpg"
-              alt="Yosemite Valley"
-              class="element__image"
-            />
-            <div class="element__information">
-              <p class="element__title">Yosemite Valley</p>
-              <div class="element__like-button"></div>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              src="./images/lake.jpg"
-              alt="Lake Louise"
-              class="element__image"
-            />
-            <div class="element__information">
-              <p class="element__title">Lake Louise</p>
-              <div class="element__like-button"></div>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              src="./images/baldmountains.jpg"
-              alt="Bald Mountains"
-              class="element__image"
-            />
-            <div class="element__information">
-              <p class="element__title">Bald Mountains</p>
-              <div class="element__like-button"></div>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              src="./images/latemar.jpg"
-              alt="Latemar"
-              class="element__image"
-            />
-            <div class="element__information">
-              <p class="element__title">Latemar</p>
-              <div class="element__like-button"></div>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              src="./images/vanoise.jpg"
-              alt="Vanoise National Park"
-              class="element__image"
-            />
-            <div class="element__information">
-              <p class="element__title">Vanoise National Park</p>
-              <div class="element__like-button"></div>
-            </div>
-          </div>
-          <div class="element">
-            <img
-              src="./images/lagobraies.jpg"
-              alt="Lago di Braies"
-              class="element__image"
-            />
-            <div class="element__information">
-              <p class="element__title">Lago di Braies</p>
-              <div class="element__like-button"></div>
-            </div>
-          </div>
-        </div>
+        <div class="cards"></div>
       </main>
-      <section class="popup">
-        <div class="popup__container">
-          <form class="popup__form">
-            <button class="popup__close-button"></button>
+
+      <!----------- EDITAR PERFIL --------------->
+      <section class="popup" id="edit-profile-popup">
+        <div class="popup__container" id="edit-container">
+          <button class="popup__close-button" id="close-button"></button>
+          <form class="popup__form" id="profile-form">
             <h2 class="popup__title">Edit profile</h2>
-            <input class="popup__input popup__input_name" type="text" />
+            <input
+              class="popup__input popup__input_name"
+              type="text"
+              id="input-name"
+              required
+              minlength="2"
+              maxlength="50"
+              placeholder="Name"
+            />
             <p></p>
-            <input class="popup__input popup__input_about" type="text" />
+            <input
+              class="popup__input popup__input_about"
+              type="text"
+              id="input-about"
+              required
+              minlength="2"
+              maxlength="50"
+              placeholder="Profession"
+            />
             <p></p>
             <button class="popup__save-button" type="submit">Save</button>
           </form>
         </div>
       </section>
+      <!-----------AGREGAR IMAGENES--------------->
+      <section class="popup" id="add-image-popup">
+        <div class="popup__container" id="add-container">
+          <button class="popup__close-button" id="close-button"></button>
+          <form class="popup__form" id="add-image-form">
+            <h2 class="popup__title">New place</h2>
+            <input
+              class="popup__input popup__input_name"
+              type="text"
+              id="input-title-place"
+              required
+              name="title"
+              minlength="2"
+              maxlength="50"
+              placeholder="title"
+            />
+            <p></p>
+            <input
+              class="popup__input popup__input_about"
+              type="text"
+              id="input-url-image"
+              required
+              name="link"
+              minlength="2"
+              placeholder="URL"
+            />
+            <p></p>
+            <button class="popup__save-button" type="submit">Create</button>
+          </form>
+        </div>
+      </section>
+      <template class="template-card">
+        <div class="card">
+          <button class="card__delete-button"></button>
+          <img class="card__image" />
+          <div class="card__information">
+            <p class="card__information-name">
+            </p>
+            <button class="card__like-button"></button>
+          </div>
+        </div>
+      </template>
+      <div class="popup" id="popup-image-open">
+        <div class="popup__conteiner-image">
+          <button class="popup__close-button popup__close-imag"></button>
+          <img class="popup__image" src="." alt="" />
+          <h2 class="popup__image-title"></h2>
+        </div>
+      </div>
       <footer class="footer">&copy; 2024. Juan Manuel Molina</footer>
     </div>
+
     <script src="./script/script.js"></script>
   </body>
 </html>
