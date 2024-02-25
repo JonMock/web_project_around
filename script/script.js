@@ -167,6 +167,5 @@ formCard.addEventListener("submit", handleAddCardSubmit);
 imageClose.addEventListener("click", handleCloseImage);
 
 popUpCard
-  .querySelector("#close-button")
+  .querySelector("#close-button-image")
   .addEventListener("click", closeImageAdd);
-
