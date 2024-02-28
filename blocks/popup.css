@@ -106,8 +106,8 @@
   box-sizing: border-box;
   border: none;
   position: absolute;
-  top: -6%;
-  right: -5%;
+  top: -6px;
+  right: -5px;
   background-color: transparent;
 }
 
