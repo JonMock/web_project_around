@@ -106,8 +106,8 @@
   box-sizing: border-box;
   border: none;
   position: absolute;
-  top: -6px;
-  right: -5px;
+  top: -25px;
+  right: -30px;
   background-color: transparent;
 }
 
@@ -163,10 +163,5 @@
     height: 46px;
     font-size: 14px;
     line-height: 17px;
-  }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .popup__close-button {
   }
 }
