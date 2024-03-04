@@ -40,7 +40,7 @@
 }
 
 .card__like-button {
-  background-image: url(../images/Ilike.png);
+  background-image: url(../images/Vector.svg);
   background-repeat: no-repeat;
   width: 21px;
   height: 18px;
@@ -53,8 +53,7 @@
 }
 
 .card__like-button_active {
-  background-image: url(../images/Union.png);
-
+  background-image: url(../images/Union.svg);
 }
 
 .card__delete-button {
