@@ -4,6 +4,7 @@
   grid-template-columns: repeat(3, 1fr);
   margin-bottom: 66px;
   gap: 1rem;
+  min-height: 100%;
 }
 
 .card {
