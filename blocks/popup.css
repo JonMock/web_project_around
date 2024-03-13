@@ -72,6 +72,10 @@
   line-height: 17px;
 }
 
+.popup__input:invalid {
+  border-bottom: 1px solid red;
+}
+
 .popup__input_about {
   margin-bottom: 48px;
 }
@@ -86,10 +90,14 @@
   font-size: 18px;
   font-weight: 400;
   line-height: 22px;
-  width: 358px;
+  width: 425px;
   height: 50.15px;
   border-radius: 2px;
   margin-top: 0;
+}
+
+.popup__save-button:hover {
+  opacity: 0.6;
 }
 
 .popup__image {
@@ -116,6 +124,20 @@
 .popup__close-imag {
   top: 62px;
   right: 0;
+}
+
+.popup__error {
+  color: red;
+}
+
+.popup__type_input_error {
+  border-bottom: red 1px solid;
+}
+
+.popup__button_disabled {
+  background-color: white;
+  color: #cccccc;
+  pointer-events: none;
 }
 
 @media screen and (max-width: 768px) {

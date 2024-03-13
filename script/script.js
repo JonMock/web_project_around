@@ -23,6 +23,7 @@ const inputImage = document.querySelector("#input-url-image");
 const templateCard = document.querySelector(".template-card");
 const spaceCard = document.querySelector(".cards");
 const formCard = document.querySelector("#add-image-form");
+const groupImage = document.getElementById("add-image-popup");
 const initialCards = [
   {
     name: "Valle de Yosemite",
@@ -62,6 +63,10 @@ const popupImage = document.querySelector(".popup__image");
 let initialProfileName = profileName;
 let initialProfileAbout = profileAbout;
 
+const overlayEdit = document.querySelector("#popup-edit-overlay");
+const overlayAdd = document.querySelector("#popup-add-overlay");
+const overlayImage = document.querySelector("#popup-image-overlay");
+
 function setPopupInput() {
   nameInput.value = initialProfileName;
   aboutInput.value = initialProfileAbout;
@@ -69,6 +74,7 @@ function setPopupInput() {
 
 function openPopup() {
   editPopupElement.classList.add("popup_opened");
+  overlayEdit.removeEventListener("click", handleOverlayClick);
 }
 
 function handlePopupClick(event) {
@@ -78,6 +84,7 @@ function handlePopupClick(event) {
 
 function closePopup() {
   editPopupElement.classList.remove("popup_opened");
+  overlayEdit.removeEventListener("click", handleOverlayClick);
 }
 
 function handleProfileFormSubmit(evt) {
@@ -93,6 +100,7 @@ function handleProfileFormSubmit(evt) {
 
 function openImageAdd() {
   popUpCard.classList.add("popup_opened");
+  overlayAdd.removeEventListener("click", handleOverlayClick);
 }
 
 function handleImageAddClick(event) {
@@ -101,6 +109,7 @@ function handleImageAddClick(event) {
 
 function closeImageAdd() {
   popUpCard.classList.remove("popup_opened");
+  overlayAdd.removeEventListener("click", handleOverlayClick);
 }
 
 function handleAddImageSubmitForm(evt) {
@@ -139,33 +148,69 @@ initialCards.forEach(function (element) {
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
-  const newCard = cardGenerator(inputTitle.value, inputImage.value);
-  spaceCard.prepend(newCard);
+  if (evt.submitter.classList.contains("popup__save-button")) {
+    const newCard = cardGenerator(inputTitle.value, inputImage.value);
+    spaceCard.prepend(newCard);
+  }
   closeImageAdd();
 }
+
+const popup3 = document.querySelector(".popup");
+popup3.addEventListener("click", function (event) {
+  if (event.target.classList.contains("popup")) {
+    closePopup();
+  }
+});
 
 //Popup imagenes
 
 function handleOpenImage(title, link) {
   popupImage.src = link;
   popupTitleImage.textContent = title;
+  popupImage.alt = title;
   popupOpenImage.classList.add("popup_opened");
+  imageClose.addEventListener("click", handleImageClose);
+  overlayImage.addEventListener("click", handleOverlayClick);
 }
 
 function handleCloseImage() {
   popupOpenImage.classList.remove("popup_opened");
+  overlayImage.removeEventListener("click", handleOverlayClick);
+}
+
+function handleOverlayClick(event) {
+  if (event.target.classList.contains("popup__overlay")) {
+    closePopup();
+    closeImageAdd();
+    handleCloseImage();
+  }
+}
+
+function closeWithEsc(event) {
+  if (event.key === "Escape") {
+    closePopup();
+    closeImageAdd();
+    handleCloseImage();
+  }
 }
 
 //Eventos
 
 profileEditButton.addEventListener("click", handlePopupClick);
+formElement.addEventListener("submit", handleProfileFormSubmit);
 closeButtonPopup.addEventListener("click", closePopup);
 formElement.addEventListener("submit", handleProfileFormSubmit);
 
 btnAddCard.addEventListener("click", handleImageAddClick);
+formCard.addEventListener("submit", handleAddCardSubmit);
 formCard.addEventListener("submit", handleAddCardSubmit);
 imageClose.addEventListener("click", handleCloseImage);
 
 popUpCard
   .querySelector("#close-button-image")
   .addEventListener("click", closeImageAdd);
+
+overlayEdit.addEventListener("click", handleOverlayClick);
+overlayAdd.addEventListener("click", handleOverlayClick);
+overlayImage.addEventListener("click", handleOverlayClick);
+document.addEventListener("keydown", closeWithEsc);

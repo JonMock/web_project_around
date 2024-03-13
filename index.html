@@ -40,63 +40,71 @@
 
       <!----------- EDITAR PERFIL --------------->
       <section class="popup" id="edit-profile-popup">
-        <div class="popup__container" id="edit-container">
-          <button class="popup__close-button" id="close-button"></button>
-          <form class="popup__form" id="profile-form">
-            <h2 class="popup__title">Edit profile</h2>
-            <input
-              class="popup__input popup__input_name"
-              type="text"
-              id="input-name"
-              required
-              minlength="2"
-              maxlength="50"
-              placeholder="Name"
-            />
-            <p></p>
-            <input
-              class="popup__input popup__input_about"
-              type="text"
-              id="input-about"
-              required
-              minlength="2"
-              maxlength="50"
-              placeholder="Profession"
-            />
-            <p></p>
-            <button class="popup__save-button" type="submit">Save</button>
-          </form>
+        <div class="popup__overlay" id="popup-edit-overlay">
+          <div class="popup__container" id="edit-container">
+            <button class="popup__close-button" id="close-button"></button>
+            <form class="popup__form" id="profile-form" novalidate>
+              <h2 class="popup__title">Edit profile</h2>
+              <input
+                class="popup__input popup__input_name"
+                type="text"
+                id="input-name"
+                required
+                minlength="2"
+                maxlength="50"
+                placeholder="Name"
+              />
+              <span class="popup__error" id="input-name-error"></span>
+              <input
+                class="popup__input popup__input_about"
+                type="text"
+                id="input-about"
+                required
+                minlength="2"
+                maxlength="50"
+                placeholder="Profession"
+              />
+              <span class="popup__error" id="input-about-error"></span>
+              <button class="popup__save-button" type="submit">Save</button>
+            </form>
+          </div>
         </div>
       </section>
       <!-----------AGREGAR IMAGENES--------------->
       <section class="popup" id="add-image-popup">
-        <div class="popup__container" id="add-container">
-          <button class="popup__close-button" id="close-button-image"></button>
-          <form class="popup__form" id="add-image-form">
-            <h2 class="popup__title">New place</h2>
-            <input
-              class="popup__input popup__input_name"
-              type="text"
-              id="input-title-place"
-              required
-              name="title"
-              minlength="2"
-              maxlength="50"
-              placeholder="title"
-            />
-            <p></p>
-            <input
-              class="popup__input popup__input_about"
-              type="text"
-              id="input-url-image"
-              required
-              name="link"
-              minlength="2"
-              placeholder="URL"
-            />
-            <p></p>
-            <button class="popup__save-button" type="submit">Create</button>
-          </form>
+        <div class="popup__overlay" id="popup-add-overlay">
+          <div class="popup__container" id="add-container">
+            <button
+              class="popup__close-button"
+              id="close-button-image"
+            ></button>
+            <form class="popup__form" id="add-image-form" novalidate>
+              <h2 class="popup__title">New place</h2>
+              <input
+                class="popup__input popup__input_name"
+                type="text"
+                id="input-title-place"
+                required
+                name="title"
+                minlength="2"
+                maxlength="50"
+                placeholder="title"
+              />
+              <span class="popup__error" id="input-title-place-error"></span>
+              <input
+                class="popup__input popup__input_about"
+                type="text"
+                id="input-url-image"
+                required
+                name="link"
+                minlength="2"
+                placeholder="URL"
+              />
+              <span class="popup__error" id="input-url-image-error"></span>
+
+              <button class="popup__save-button" type="submit">Create</button>
+            </form>
+          </div>
         </div>
       </section>
       <template class="template-card">
@@ -110,15 +118,18 @@
         </div>
       </template>
       <div class="popup" id="popup-image-open">
-        <div class="popup__conteiner-image">
-          <button class="popup__close-button popup__close-imag"></button>
-          <img class="popup__image" src="." alt="" />
-          <h2 class="popup__image-title"></h2>
+        <div class="popup__overlay" id="popup-image-overlay">
+          <div class="popup__conteiner-image">
+            <button class="popup__close-button popup__close-imag"></button>
+            <img class="popup__image" src="." alt="" />
+            <h2 class="popup__image-title"></h2>
+          </div>
         </div>
       </div>
       <footer class="footer">&copy; 2024. Juan Manuel Molina</footer>
     </div>
 
     <script src="./script/script.js"></script>
+    <script src="./script/validate.js"></script>
   </body>
 </html>
