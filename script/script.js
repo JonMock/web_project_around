@@ -169,17 +169,16 @@ function handleOpenImage(title, link) {
   popupTitleImage.textContent = title;
   popupImage.alt = title;
   popupOpenImage.classList.add("popup_opened");
-  imageClose.addEventListener("click", handleImageClose);
+  imageClose.addEventListener("click", handleCloseImage);
   overlayImage.addEventListener("click", handleOverlayClick);
 }
 
 function handleCloseImage() {
   popupOpenImage.classList.remove("popup_opened");
-  overlayImage.removeEventListener("click", handleOverlayClick);
 }
 
 function handleOverlayClick(event) {
-  if (event.target.classList.contains("popup__overlay")) {
+  if (event.target.classList.contains("popup")) {
     closePopup();
     closeImageAdd();
     handleCloseImage();
@@ -210,7 +209,7 @@ popUpCard
   .querySelector("#close-button-image")
   .addEventListener("click", closeImageAdd);
 
-overlayEdit.addEventListener("click", handleOverlayClick);
-overlayAdd.addEventListener("click", handleOverlayClick);
-overlayImage.addEventListener("click", handleOverlayClick);
+popup3.addEventListener("click", handleOverlayClick);
+popUpCard.addEventListener("click", handleOverlayClick);
+popupOpenImage.addEventListener("click", handleOverlayClick);
 document.addEventListener("keydown", closeWithEsc);

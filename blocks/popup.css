@@ -45,7 +45,7 @@
   position: absolute;
   top: -50px;
   right: 0;
-  background-color: #00000026;
+  background-color: transparent;
 }
 
 .popup__close-button:hover {
@@ -111,10 +111,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 15px;
-  text-align: left;
-  margin-bottom: 90px;
-  margin-top: 10px;
-  margin-right: 360px;
+  width: 100%;
 }
 
 .popup__conteiner-image {
@@ -122,8 +119,8 @@
 }
 
 .popup__close-imag {
-  top: 62px;
-  right: 0;
+  top: 40px;
+  right: -40px;
 }
 
 .popup__error {
