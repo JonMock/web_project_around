@@ -43,26 +43,26 @@
         <div class="popup__overlay" id="popup-edit-overlay">
           <div class="popup__container" id="edit-container">
             <button class="popup__close-button" id="close-button"></button>
-            <form class="popup__form" id="profile-form" novalidate>
+            <form class="popup__form" id="profile-form" required>
               <h2 class="popup__title">Edit profile</h2>
               <input
                 class="popup__input popup__input_name"
                 type="text"
                 id="input-name"
-                required
                 minlength="2"
                 maxlength="50"
                 placeholder="Name"
+                required
               />
               <span class="popup__error" id="input-name-error"></span>
               <input
                 class="popup__input popup__input_about"
                 type="text"
                 id="input-about"
-                required
                 minlength="2"
                 maxlength="50"
                 placeholder="Profession"
+                required
               />
               <span class="popup__error" id="input-about-error"></span>
               <button class="popup__save-button" type="submit">Save</button>
@@ -78,28 +78,29 @@
               class="popup__close-button"
               id="close-button-image"
             ></button>
-            <form class="popup__form" id="add-image-form" novalidate>
+            <form class="popup__form" id="add-image-form" required>
               <h2 class="popup__title">New place</h2>
               <input
                 class="popup__input popup__input_name"
                 type="text"
                 id="input-title-place"
-                required
                 name="title"
                 minlength="2"
                 maxlength="50"
                 placeholder="title"
+                required
               />
               <span class="popup__error" id="input-title-place-error"></span>
               <input
                 class="popup__input popup__input_about"
                 type="url"
                 id="input-url-image"
-                required
                 name="link"
                 minlength="2"
                 placeholder="URL"
+                required
               />
+
               <span class="popup__error" id="input-url-image-error"></span>
 
               <button class="popup__save-button" type="submit">Create</button>

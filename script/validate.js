@@ -25,14 +25,14 @@ const checkInputValidity = (formElement, inputElement, settings) => {
   }
 };
 
-const hasInvalidInput = (inputList) => {
+const haveInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 };
 
 const toogleButtonState = (inputList, buttonElement, settings) => {
-  if (hasInvalidInput(inputList)) {
+  if (haveInvalidInput(inputList)) {
     buttonElement.classList.add(settings.inactiveButtonClass);
   } else {
     buttonElement.classList.remove(settings.inactiveButtonClass);

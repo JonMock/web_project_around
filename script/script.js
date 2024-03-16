@@ -155,7 +155,7 @@ function handleAddCardSubmit(evt) {
   closeImageAdd();
 }
 
-const popup3 = document.querySelector(".popup");
+const popupId = document.querySelector(".popup");
 popup3.addEventListener("click", function (event) {
   if (event.target.classList.contains("popup")) {
     closePopup();
@@ -209,7 +209,7 @@ popUpCard
   .querySelector("#close-button-image")
   .addEventListener("click", closeImageAdd);
 
-popup3.addEventListener("click", handleOverlayClick);
+popupId.addEventListener("click", handleOverlayClick);
 popUpCard.addEventListener("click", handleOverlayClick);
 popupOpenImage.addEventListener("click", handleOverlayClick);
 document.addEventListener("keydown", closeWithEsc);
