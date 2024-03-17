@@ -156,7 +156,7 @@ function handleAddCardSubmit(evt) {
 }
 
 const popupId = document.querySelector(".popup");
-popup3.addEventListener("click", function (event) {
+popupId.addEventListener("click", function (event) {
   if (event.target.classList.contains("popup")) {
     closePopup();
   }
