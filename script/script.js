@@ -128,6 +128,7 @@ function cardGenerator(title, link) {
   const likeButton = card.querySelector(".card__like-button");
   const deleteButton = card.querySelector(".card__delete-button");
   cardImage.src = link;
+  cardImage.alt = title;
   cardTitle.textContent = title;
   likeButton.addEventListener("click", function () {
     likeButton.classList.toggle("card__like-button_active");
